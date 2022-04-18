@@ -1,0 +1,46 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px;
+
+    .nav__logo {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        display: block;
+        animation: spin linear 3s infinite;
+    }
+
+
+    .nav__list {
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        list-style-type: none;
+
+        .nav__link {
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #fff;
+
+        }
+
+        .nav__link:hover {
+            background-color: #FFCC70;
+        }
+
+        .nav__link.active {
+            background-color: #FFCC70;
+        }
+    }
+
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
