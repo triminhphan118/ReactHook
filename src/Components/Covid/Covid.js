@@ -1,23 +1,33 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import moment from 'moment';
+import useFetch from "../../Funct/Fetch";
+import { CountDown, NewCountDown } from "../CountDown/CountDown";
 
 const Covid = () => {
-    const [ dataCovid , setDataCovid ] = useState([]); 
-    useEffect( () => {
-        ( async () => {
-                const data = await axios.get('https://api.covid19api.com/country/vietnam?from=2022-02-01T00:00:00Z&to=2022-04-19T00:00:00Z');
-                let dataCovid = data && data.status === 200 && data.data ? data.data : [];
-                dataCovid = dataCovid.map(data => {
-                    data.Date = moment(data.Date).format('DD/MM/YYYY');
-                    return data;
-                })
-                setDataCovid(dataCovid);
-        })();
-    }, [])
+    let dateToday = new Date( new Date().setHours(0, 0, 0, 0));
+    let priorDate = new Date( new Date().setHours(0, 0, 0, 0)).setDate(dateToday.getDate() - 30);
+    const {data : dataCovid, loading, isErr } = useFetch(`https://api.covid19api.com/country/vietnam?from=${priorDate}&to=${dateToday}`)
+
+
+    const timeUp = () => {
+        alert('time out');
+    }
+    
     return (
         <>
-            <h2 style={{textAlign : 'center', margin : '16px 0'}}>Covid 19</h2>
+            <div style={{textAlign : 'center', margin : '16px 0'}}>
+                        <CountDown 
+                            timeUp = {timeUp}
+                        />
+                        <hr/>
+                        <NewCountDown
+                            timeUp = {timeUp}
+                        />
+
+                <hr/>
+                <h2 >Covid 19</h2>
+            </div>
             <table id="customers">
                 <thead>
                 <tr>
@@ -29,7 +39,14 @@ const Covid = () => {
                 </tr>
                 </thead>
                 <tbody>
-                {
+                {  loading && isErr.isError === false &&
+                  <tr><td colSpan={5} style={{textAlign : 'center'}}>Loading ...</td></tr>
+                }
+
+                {  loading === false && isErr.isError === true &&
+                  <tr><td colSpan={5} style={{textAlign : 'center'}}>SomeThing Wrong... : {isErr.message}</td></tr>
+                }
+                { loading === false && 
                     dataCovid.map( data => {
                         return (
                                 <tr key={data.ID}>
