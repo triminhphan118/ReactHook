@@ -29,7 +29,7 @@ class CountDown extends React.Component {
  render() {
      return (
          <div>
-             {this.state.second}
+             {this.state.second} class
          </div>
      );
  }

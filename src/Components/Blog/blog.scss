@@ -1,0 +1,85 @@
+.list__blogs {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    .heading {
+        width: 100%;
+        font-size: 3rem;
+        margin: 20px 0px;
+
+    }
+
+    .card__blog {
+        width: calc(20% - 20px);
+        border: 1px solid rgba(255, 255, 255, .4);
+        border-radius: 4px;
+        margin-left: 20px;
+        margin-top: 10px;
+        text-align: left;
+        padding: 10px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card__title {
+        flex: 1;
+        margin-bottom: 8px;
+    }
+    .stt {
+        display: block;
+        text-align: center;
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #000;
+    }
+
+}
+.btn {
+    padding: 4px 8px;
+    background-color: transparent;
+    position: relative;
+    z-index: 1;
+    border-radius: 6px;
+    outline: none;
+    border: 1px solid #fff;
+    cursor: pointer;
+    
+    .btn__link {
+        text-decoration: none;
+        font-size: 1.6rem;
+        color: #fff;
+    }
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    background-color: #A8EB12;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: width linear .25s;
+
+}
+
+.btn:hover::before {
+    width: 100%;
+}
+
+.blog__detail {
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid;
+    margin-bottom: 20px;
+    .heading {
+        margin : 10px 0;
+    }
+
+    .decs {
+        text-align: left;
+    }
+
+}

@@ -1,5 +1,6 @@
 import logo from '../../logo.svg';
 import './nav.scss';
+import { NavLink } from "react-router-dom";
  
 const Nav = () => {
 
@@ -9,19 +10,23 @@ const Nav = () => {
                 <img src={logo} alt="logo" className="nav__logo"/>
                 <ul className="nav__list">
                     <li className="nav__list-item">
-                        <a href="#." className="nav__link active">Home</a>
+                        <NavLink to="/" className="nav__link">Home</NavLink>
                     </li>
 
                     <li className="nav__list-item">
-                        <a href="#." className="nav__link">Todo</a>
+                        <NavLink to="/timer" className="nav__link">Timer</NavLink>
                     </li>
 
                     <li className="nav__list-item">
-                        <a href="#." className="nav__link">About</a>
+                        <NavLink to="/todo" className="nav__link">Todo</NavLink>
                     </li>
 
                     <li className="nav__list-item">
-                        <a href="#." className="nav__link">Intro</a>
+                        <NavLink to="/posts" className="nav__link">Post Apps</NavLink>
+                    </li>
+
+                    <li className="nav__list-item">
+                        <NavLink to="/secret" className="nav__link">Secret Meaning</NavLink>
                     </li>
                 </ul>
             </nav>

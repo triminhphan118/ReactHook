@@ -2,29 +2,16 @@ import { useEffect, useState } from "react";
 import axios from 'axios';
 import moment from 'moment';
 import useFetch from "../../Funct/Fetch";
-import { CountDown, NewCountDown } from "../CountDown/CountDown";
 
 const Covid = () => {
     let dateToday = new Date( new Date().setHours(0, 0, 0, 0));
     let priorDate = new Date( new Date().setHours(0, 0, 0, 0)).setDate(dateToday.getDate() - 30);
-    const {data : dataCovid, loading, isErr } = useFetch(`https://api.covid19api.com/country/vietnam?from=${priorDate}&to=${dateToday}`)
+    const {data : dataCovid, loading, isErr } = useFetch(`https://api.covid19api.com/country/vietnam?from=${priorDate}&to=${dateToday}`, true)
 
-
-    const timeUp = () => {
-        alert('time out');
-    }
-    
     return (
         <>
             <div style={{textAlign : 'center', margin : '16px 0'}}>
-                        <CountDown 
-                            timeUp = {timeUp}
-                        />
-                        <hr/>
-                        <NewCountDown
-                            timeUp = {timeUp}
-                        />
-
+                    
                 <hr/>
                 <h2 >Covid 19</h2>
             </div>
