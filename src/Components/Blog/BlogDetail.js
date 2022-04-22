@@ -5,7 +5,7 @@ const BlogDetail = () => {
     const {id} = useParams();
     const history = useNavigate();
 
-    const { data :dataBlogDetail, loading, isErr} = useFetch(`https://jsoffnplaceholder.typicode.com/posts/${id}`, false);
+    const { data :dataBlogDetail, loading, isErr} = useFetch(`https://jsonplaceholder.typicode.com/posts/${id}`, false);
     const handelClick = () => {
         history('/posts');
     }

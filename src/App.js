@@ -8,6 +8,8 @@ import { CountDown, NewCountDown } from "./Components/CountDown/CountDown";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Blog from './Components/Blog/Blog';
 import BlogDetail from './Components/Blog/BlogDetail';
+import AddNewBlog from './Components/Blog/AddNewBlog';
+import NotFound from './Components/NotFound/NotFound';
 
 function App() {
   const [todo, setTodo] = useState([
@@ -99,6 +101,10 @@ function App() {
             <BlogDetail/>
           }/>
 
+          <Route path='/addnewblog' element = {
+            <AddNewBlog/>
+          }/>
+
           <Route path="/todo" element={
             <>
               <Todo
@@ -125,6 +131,10 @@ function App() {
               </button>
             </>
           } />
+
+          <Route path='*' element = {
+            <NotFound/>
+          }/>
 
       </Routes>
         </div>
