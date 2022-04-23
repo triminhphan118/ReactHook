@@ -10,6 +10,7 @@ import Blog from './Components/Blog/Blog';
 import BlogDetail from './Components/Blog/BlogDetail';
 import AddNewBlog from './Components/Blog/AddNewBlog';
 import NotFound from './Components/NotFound/NotFound';
+import YoutubeSearch from './Components/Youtube/YoutubeSearch';
 
 function App() {
   const [todo, setTodo] = useState([
@@ -103,6 +104,10 @@ function App() {
 
           <Route path='/addnewblog' element = {
             <AddNewBlog/>
+          }/>
+
+          <Route path='/secret' element = {
+            <YoutubeSearch/>
           }/>
 
           <Route path="/todo" element={
